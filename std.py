@@ -74,6 +74,12 @@ def FormatText(m):
             fmt.append(w.word)
     words = [str(s).lower() for s in m.dgndictation[0]._words]
 
+    # Ensure multi-word phrases are single words
+    tmp = []
+    for word in words:
+        tmp.extend(word.split())
+    words = tmp
+
     tmp = []
     spaces = True
     for i, word in enumerate(words):
